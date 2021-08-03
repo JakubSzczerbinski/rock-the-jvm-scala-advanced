@@ -1,5 +1,7 @@
 package lectures.part4implicits
 
+import java.lang.Integer.parseInt
+
 object PimpMyLibrary extends App {
 
   implicit class RichInt(value : Int) {
@@ -14,7 +16,7 @@ object PimpMyLibrary extends App {
 
 
   implicit class RichString(string: String) {
-    def asInt : Int = string
+    def asInt : Int = parseInt(string)
     val cipher : Map[Char, Char] = Map (
       'g' -> 'a',
       'a' -> 'g',
@@ -41,6 +43,6 @@ object PimpMyLibrary extends App {
 
   println(3 * List(1, 2))
 
-  implicit def intOfString(string: String): Int = string.toInt
+  implicit def intOfString(string: String): Int = parseInt(string)
   println("4" / 2)
 }
